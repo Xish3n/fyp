@@ -1,0 +1,4 @@
+# Memory-enhanced agent: identical to base.yaml except that memory is on (D-07).
+name: memory
+memory:
+  enabled: true

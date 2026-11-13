@@ -1,0 +1,4 @@
+# Base agent: the memory stages (4 Retrieve, 9 Save to Chroma) are switched off.
+name: base
+memory:
+  enabled: false

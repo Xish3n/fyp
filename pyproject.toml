@@ -4,7 +4,11 @@ version = "0.1.0"
 description = "Autonomous agentic framework that turns an SRS into a tested Python project."
 readme = "README.md"
 requires-python = ">=3.12,<3.13"
-dependencies = []
+dependencies = [
+    "pydantic>=2.14.3",
+    "pydantic-settings>=2.16.3",
+    "pyyaml>=6.0.3",
+]
 
 [build-system]
 requires = ["hatchling"]

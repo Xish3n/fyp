@@ -1,0 +1,28 @@
+# Model registry: the only place model ids are listed (D-31).
+# LLM_PROVIDER and LLM_MODEL in .env must match one entry here.
+#
+# Entries are added and measured in task 0.5 (model benchmark). Leave a field
+# out (or null) until it has been measured; never guess limits or prices.
+#
+# Fields:
+#   id                    model id exactly as the provider's API expects it
+#   provider              groq | openrouter
+#   supports_tools        reliable tool/function calling (true/false)
+#   supports_json_schema  strict JSON-schema structured output (true/false)
+#   context_window        tokens
+#   rpm, tpm              free-tier requests / tokens per minute
+#   price_in, price_out   USD per 1M tokens (0 for free models)
+#   notes                 anything worth remembering
+#
+# Example:
+#   - id: provider-model-id
+#     provider: groq
+#     supports_tools: true
+#     supports_json_schema: true
+#     context_window: 131072
+#     rpm: 30
+#     tpm: 6000
+#     price_in: 0
+#     price_out: 0
+
+models: []
