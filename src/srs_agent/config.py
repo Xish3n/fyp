@@ -45,6 +45,7 @@ class Settings(BaseSettings):
     openai_api_key: SecretStr | None = None  # optional external tracing only (D-19)
 
     default_project_path: Path = Path.home() / "SRSProjects"
+    db_path: Path = PROJECT_ROOT / "data" / "srs_agent.sqlite3"
     run_mode: Literal["dev", "experiment"] = "dev"
 
     @field_validator("*", mode="before")
@@ -63,6 +64,11 @@ class Settings(BaseSettings):
         if not value.is_absolute():
             raise ValueError(f"DEFAULT_PROJECT_PATH must be an absolute Linux path, got '{value}'")
         return value
+
+    @field_validator("db_path")
+    @classmethod
+    def _relative_to_project(cls, value: Path) -> Path:
+        return value if value.is_absolute() else PROJECT_ROOT / value
 
     @model_validator(mode="after")
     def _consistent(self) -> "Settings":

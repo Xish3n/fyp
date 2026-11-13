@@ -17,4 +17,6 @@ dist/
 # Local data
 data/chroma/
 *.sqlite3
+*.sqlite3-wal
+*.sqlite3-shm
 *.db
